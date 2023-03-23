@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def makeChange(coins, total):
     # Initialize table
     min_coins = [float('inf')] * (total + 1)
