@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-
+"""
+Making change task
+"""
 
 def makeChange(coins, total):
-    # Initialize table
-    min_coins = [float('inf')] * (total + 1)
-    min_coins[0] = 0
-
-    # Fill table
+    if total <= 0:
+        return 0
+    coins.sort(reverse=True)
+    coins_needed = 0
     for coin in coins:
-        for i in range(coin, total + 1):
-            min_coins[i] = min(min_coins[i], min_coins[i - coin] + 1)
+        if total / coin > 0:
+            coins_needed = coins_needed + (total // coin)
+            total = total % coin
 
-    # Return result
-    return min_coins[total] if min_coins[total] != float('inf') else -1
+    if total != 0 or coins_needed == 0:
+        return -1
+    return coins_needed
