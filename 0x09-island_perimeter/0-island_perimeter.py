@@ -1,23 +1,28 @@
-def island_perimeter(grid):
-    perimeter = 0
-    
-    # iterate over each cell in the grid
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            
-            # if the cell is land, add 4 to the perimeter
-            if grid[i][j] == 1:
-                perimeter += 4
-                
-                # check if there is land in the adjacent cells and subtract 1 for each adjacent land cell
-                if i > 0 and grid[i-1][j] == 1:
-                    perimeter -= 1
-                if i < len(grid)-1 and grid[i+1][j] == 1:
-                    perimeter -= 1
-                if j > 0 and grid[i][j-1] == 1:
-                    perimeter -= 1
-                if j < len(grid[0])-1 and grid[i][j+1] == 1:
-                    perimeter -= 1
-    
-    return perimeter
+#!/usr/bin/python3
+"""This module contains the function island_perimeter problem solution
+"""
 
+
+def island_perimeter(grid):
+    """This function returns the perimeter of the island described in grid
+    """
+
+    if not grid:
+        return 0  # empty grid has no perimeter
+    perimeter = 0  # perimeter of the island
+    for row in range(len(grid)):  # rows in grid
+        for col in range(len(grid[row])):  # columns in grid
+            """ if the cell is land (1) then check the perimeter of the cell
+                and add it to the perimeter of the island described in grid
+            """
+            if grid[row][col] == 1:
+                perimeter += 4
+                # check top cell if exists
+                if row > 0 and grid[row - 1][col] == 1:
+                    # subtract 2 from perimeter if top cell is land
+                    perimeter -= 2
+                    # check left cell if exists
+                if col > 0 and grid[row][col - 1] == 1:
+                    # subtract 2 from perimeter if left cell is land
+                    perimeter -= 2
+    return perimeter  # return perimeter of the island
