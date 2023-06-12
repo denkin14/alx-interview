@@ -1,28 +1,7 @@
-Install Node 10
+Task
+Script that prints all characters of a Star Wars movie:
 
-$ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-$ sudo apt-get install -y nodejs
-
-upgrade nodejs using the following steps
-
-sudo apt update
-sudo apt upgrade
-
-sudo apt install nodejs
-
-check version is higher than version 14
-
-node -v 
-
-Install semi-standard
-
-Documentation
-
-$ sudo npm install semistandard --global
-
-Install request module and use it
-
-Documentation
-
-$ sudo npm install request --global
-$ export NODE_PATH=/usr/lib/node_modules
+1. The first positional argument passed is the Movie ID - example: 3 = “Return of the Jedi”
+2. Makes a request to Star Wars API using request module
+3. Display one character name per line in the same order as the “characters” list in the /films/ endpoint
+4. File: 0-starwars_characters.js
